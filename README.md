@@ -11,6 +11,15 @@ The React.js code is from a friend of mine, he is still updating it with some ch
 - [x] Automatically deploy it in Apache2
 - [ ] Automate git pull's from source repository
 
+Example images of it running
+---
+![Ansible-Playbook](https://user-images.githubusercontent.com/80067490/160331241-93f93649-760e-43a1-9c47-3d2a6b21753a.png)
+
+---
+![Site-Deployed](https://user-images.githubusercontent.com/80067490/160331107-b19a5d3a-e66d-4ddd-bbad-6a8d2a0b3e67.png)
+
+---
+
 # How to test it:
 > Before the next steps, make sure you have Vagrant, Ansible and git installed and working in your machine. Also you need to be using a linux operating system and make the necessary changes in "Additional information"
 
