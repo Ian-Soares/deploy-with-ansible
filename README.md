@@ -4,14 +4,6 @@ In this project, I automated a React.js website deploy inside a Ubuntu Vagrant B
 # About the project
 The React.js code is from a friend of mine, he is still updating it with some changes, the link of his GitHub repo is: https://github.com/Lucca-GB/NetflixClone.git
 
----
-![Ansible-Playbook](https://user-images.githubusercontent.com/80067490/160331241-93f93649-760e-43a1-9c47-3d2a6b21753a.png)
-
----
-![Site-Deployed](https://user-images.githubusercontent.com/80067490/160331107-b19a5d3a-e66d-4ddd-bbad-6a8d2a0b3e67.png)
-
----
-
 ## To-do:
 - [x] Create Vagrant box automatically with Vagrantfile
 - [x] Automated Git clone 
@@ -20,12 +12,11 @@ The React.js code is from a friend of mine, he is still updating it with some ch
 - [ ] Automate git pull's from source repository
 
 # How to test it:
-(Before the next steps make sure you have Vagrant and git installed and working. Also you need to be using a linux operating system)
+> Before the next steps, make sure you have Vagrant, Ansible and git installed and working in your machine. Also you need to be using a linux operating system and make the necessary changes in "Additional information"
 
 ```
-git clone http://www.github.com/ian-soares/deploy-with-ansible app
+git clone https://www.github.com/ian-soares/deploy-with-ansible app
 cd app
-cp ~/.ssh/id.rsa.pub ssh-keys/id.rsa.pub
 chmod +x run.sh
 ./run.sh
 ```
