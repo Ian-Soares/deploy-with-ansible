@@ -17,6 +17,7 @@ The React.js code is from a friend of mine, he is still updating it with some ch
 ```
 git clone http://www.github.com/ian-soares/deploy-with-ansible app
 cd app
+cp ~/.ssh/id.rsa.pub ssh-keys/id.rsa.pub
 chmod +x run.sh
 ./run.sh
 ```
