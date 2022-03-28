@@ -1,0 +1,7 @@
+Vagrant.configure("2") do |config|
+    config.vm.define "Apache2Machine" do |apachevm|
+        apachevm.vm.box = "ubuntu/focal64"
+        apachevm.vm.network "public_network", bridge: "enp2s0", ip: "192.168.15.205"
+    apachevm.vm.provision "shell", path: "Apache2Machine.sh"
+    end
+end

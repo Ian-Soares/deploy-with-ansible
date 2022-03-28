@@ -1,0 +1,49 @@
+- hosts: Apache2Machine
+  tasks:
+  - name: Installing Apache2 
+    become: yes
+    package:
+      name: apache2
+      state: latest
+  - name: Installing Node.js v.14
+    become: yes
+    shell: |
+      node -v || curl -sL https://deb.nodesource.com/setup_14.x | sudo bash - && apt -y install nodejs
+  - name: Installing npm (it may takes a few minutes)
+    become: yes
+    shell: |
+      npm -v || apt install -y npm
+  - name: Git clone in the sample react site
+    become: yes
+    shell: |
+      if [ ! -d /main-folder/build-folder ]; then
+        mkdir -p /main-folder/build-folder
+        cd /main-folder/build-folder/
+        git clone https://github.com/Lucca-GB/NetflixClone.git sample-site
+      fi
+  - name: Running npm install (it may takes a few minutes)
+    become: yes
+    shell: |
+      cd /main-folder/build-folder/sample-site
+      if [ ! -d /main-folder/build-folder/sample-site/node_modules ]; then
+        npm install
+      fi
+  - name: Building the react code (it may takes a few minutes)
+    become: yes
+    shell: |
+      if [ ! -d /main-folder/build-folder/sample-site/build/ ]; then
+        cd /main-folder/build-folder/sample-site
+        npm run build
+      fi
+  - name: Move the build to the /var/www/html
+    become: yes
+    shell: |
+      if [ ! -d /var/www/html/static ]; then
+        cp -r /main-folder/build-folder/sample-site/build/* /var/www/html/
+      fi
+  - name: Restarting Apache2
+    become: yes
+    service:
+      name: apache2
+      enabled: yes
+      state: restarted
